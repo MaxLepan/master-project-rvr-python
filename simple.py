@@ -13,7 +13,7 @@ from sphero_sdk import *
 rvr = SpheroRvrObserver()
 dir(SpheroRvrObserver)
 
-
+max_wing_motor_repeat = 5
 
 def wss_WHEELS(action = "",data = ""):
     
@@ -38,11 +38,14 @@ def wss_WING_MOTOR (action = "", data = ""):
     action = str(action)
     data = str(data)
 
-
     if (action == Action.MOTOR.value):
         if (data == Data.WING_MOTOR_ON.value):
+            # global max_wing_motor_repeat
+            if (max_wing_motor_repeat <= 0):
+                return
             print("in motor")
-            wing_motor_activate(0.3)
+            wing_motor_activate(0.1)
+            max_wing_motor_repeat = max_wing_motor_repeat - 1
 
 
 messages = [
