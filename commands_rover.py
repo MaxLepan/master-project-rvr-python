@@ -28,7 +28,7 @@ def rover_drive_forward(speed, duration = 1.0):
 
 def rover_rotator_turn(left,right):
     rvr.drive_tank_normalized(left,right)
-    print("in the great function")
+    # print("in the great function")
 
 def rover_stop():
     rvr.drive_tank_normalized(0, 0)
