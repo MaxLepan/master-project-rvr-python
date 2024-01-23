@@ -35,7 +35,7 @@ def wss_WHEELS(action = "",data = ""):
     action = str(action)
     data = str(data)
 
-    if(action == Action.WHEELS.value):
+    if(action == Action.ROTATOR.value):
         if(data == Data.STOP.value):
             print("in stop")
             breakLoop = True
@@ -61,6 +61,15 @@ def wss_WHEELS(action = "",data = ""):
         if(data == Data.FORWARD.value):
             print("in forward")
             rover_drive_forward(90, 2.0) 
+        if(data == Data.RESET.value):
+            global max_wing_motor_repeat
+
+            max_wing_motor_repeat = 1000
+            turning_received = 0
+            breakLoop = True
+            is_thread_already_started = False
+            rover_stop()
+            print("in reset")
 
  
 def wss_WING_MOTOR (action = "", data = ""):

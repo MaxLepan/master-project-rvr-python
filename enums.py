@@ -1,7 +1,7 @@
 from enum import Enum
 
 class Action(Enum):
-    WHEELS = "rotator"
+    ROTATOR = "rotator"
     PUMP = "pumping"
 
 class Data(Enum):
@@ -9,3 +9,4 @@ class Data(Enum):
     FORWARD = "forward"
     STOP = "stop"
     PUMP_ON = "on"
+    RESET = "reset"
